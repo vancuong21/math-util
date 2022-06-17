@@ -21,19 +21,16 @@ public class MathUtil {
     // bài này quy ước tính n! trong 0...20
     public static long getFactorial(int n) {
 
-        if (n < 0 || n > 20) {
+        if (n < 0 || n > 20)
             throw new IllegalArgumentException("Invalid argument. N must be betwen 0..20");
-        }
-
         if (n == 0 || n == 1) {
             return 1; // kết thúc nếu nhận đầu vào đặc biệt
         }
-        long product = 1; // tích nhân dồn
-        for (int i = 2; i <= n; i++) {
-            product *= i; // product = product *i;
-        }
-        return product;
-
+        return n * getFactorial(n - 1);
     }
 
+    // Học đệ quy 30s
+    // Hiện tượng gọi lại chính mình với quy mô khác 
+    // vd: con búp bê Nga, giống nhau và lồng nhau
+    // n! = n * (n - 1)!
 }
